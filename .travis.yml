@@ -1,0 +1,16 @@
+sudo: required # We need super user permission to execute build
+
+services:
+  - docker # tell travis we need docker
+
+# Series of setup that needs to occur before we run our tests or deploy project
+before_install:
+  - docker build -t aseelaldallal/factorial-calculator-web-test -f ./client/Dockerfile.dev ./client
+
+# Contain all different commands that need to be executed to run our test suite.
+# Travis will be watching output of each command, and if the return status code
+# is not 0, it'll assume that our code is broken.
+script:
+  - docker run -e CI=true aseelaldallal/factorial-calculator-web-test npm run test
+# Gotcha: Travis assumes taht tests run and exit. But npm run test does not exit,
+# it waits for input. And so we add
