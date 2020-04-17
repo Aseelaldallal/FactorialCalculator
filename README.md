@@ -8,7 +8,7 @@
 - Push to github
 - Create pull request to merge with master
 
-# Development Setup
+# CLIENT:
 
 1. Create Dockerfile.dev in client
 2. Create Docker Compose
@@ -17,3 +17,9 @@
      - Setup volumes
 3. Create .travis.yml
 4. Connect repo to travis
+
+# SERVER:
+
+Project setup:
+
+// tslint-config-prettier: It disables all TSLint formatting related rules
