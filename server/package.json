@@ -11,12 +11,19 @@
         "lint": "tslint --project tsconfig.json",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
-    "author": "",
+    "husky": {
+        "hooks": {
+            "pre-commit": "npm run lint && pretty-quick --staged"
+        }
+    },
+    "author": "Aseel Al Dallal",
     "license": "ISC",
     "devDependencies": {
         "@types/node": "^13.11.1",
+        "husky": "^4.2.5",
         "nodemon": "^2.0.3",
         "prettier": "2.0.4",
+        "pretty-quick": "^2.0.1",
         "rimraf": "^3.0.2",
         "ts-node": "^8.8.2",
         "tslint": "^6.1.1",
