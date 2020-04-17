@@ -16,4 +16,4 @@
      - Setup container port mapping
      - Setup volumes
 3. Create .travis.yml
-4. Connect repo to travis
+4. Connect repo to travis. Now whenever a pull request is made to master, the tests run on travis. If the tests pass, we are able to merge. Otherwise, we can't merge.
