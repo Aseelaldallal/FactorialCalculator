@@ -7,11 +7,13 @@
 - Make changes on FEATURE branch
 - Push to github
 - Create pull request to merge with master
-- Code on Feature branch pushed to Travis CI
 
-# Process
+# Development Setup
 
 1. Create Dockerfile.dev in client
 2. Create Docker Compose
-   - Setup container port mapping
-   - Setup volumes
+   - Client (web):
+     - Setup container port mapping
+     - Setup volumes
+3. Create .travis.yml
+4. Connect repo to travis
