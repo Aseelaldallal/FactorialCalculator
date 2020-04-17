@@ -1,23 +1,24 @@
 {
-  "name": "server",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "build": "rimraf ./build && tsc",
-    "dev": "nodemon",
-    "start": "npm run build && node build/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "@types/node": "^13.11.1",
-    "nodemon": "^2.0.3",
-    "prettier": "2.0.4",
-    "rimraf": "^3.0.2",
-    "ts-node": "^8.8.2",
-    "tslint": "^6.1.1",
-    "typescript": "^3.8.3"
-  }
+    "name": "server",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "build": "rimraf ./build && tsc",
+        "dev": "nodemon",
+        "start": "npm run build && node build/index.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "@types/node": "^13.11.1",
+        "nodemon": "^2.0.3",
+        "prettier": "2.0.4",
+        "rimraf": "^3.0.2",
+        "ts-node": "^8.8.2",
+        "tslint": "^6.1.1",
+        "tslint-config-prettier": "^1.18.0",
+        "typescript": "^3.8.3"
+    }
 }
