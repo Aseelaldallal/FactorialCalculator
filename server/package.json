@@ -6,7 +6,7 @@
     "scripts": {
         "build": "rimraf ./build && tsc",
         "dev": "nodemon",
-        "start": "npm run build && node build/index.js",
+        "start": "npm run build && node build/server.js",
         "pretty": "prettier --write lib/src/*",
         "lint": "tslint --project tsconfig.json",
         "test": "echo hello for now"
