@@ -47,3 +47,14 @@ In progress...
     - Prettier -> Install pretty-quick. Pretty quick is used to run Prettier on only changed and staged files. This is much faster than formatting the whole prject each time, and would allow us to apply changed gradually across project.
   - Prepush hook:
     - Run tests
+
+# Docker
+
+## For Development
+
+- Create Dockerfile.dev
+  - Copy package.json first. We don't want to reinstall dependencies each time we build, even though we didn't change dependencies.
+- Add postgres container, redis container
+- Add server container
+  - Setup volumes
+  - Use depends_on flag to ensure postgres and redis are started before server
