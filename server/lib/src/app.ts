@@ -67,17 +67,17 @@ class App {
 
     private setupRoutes(): void {
         this.app.get('/', (req, res) => {
-            res.send('Hi');
+            res.json('Hi');
         });
 
         this.app.get('/values/all', async (req, res) => {
             const values = await this.pgClient.query('SELECT * from values');
-            res.send(values.rows);
+            res.json(values.rows);
         });
 
         this.app.get('/values/current', async (req, res) => {
             this.redisClient.hgetall('values', (err, values) => {
-                res.send(values);
+                res.json(values);
             });
         });
 
@@ -91,7 +91,7 @@ class App {
             this.pgClient.query('INSERT INTO values(number) VALUES($1)', [
                 index,
             ]);
-            res.send({ working: true });
+            res.json({ working: true });
         });
     }
 }
