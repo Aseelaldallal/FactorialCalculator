@@ -22,7 +22,7 @@ In progress...
 
 # SERVER:
 
-## Initial Configuration
+### Initial Configuration
 
 - Create tsconfig file
   - outdir: build -> Where typescript saves our compiled code (.js and .map files)
@@ -46,9 +46,9 @@ In progress...
     - Lint -> Run lint on the project, don't allow commit if tslint errors
     - Prettier -> Install pretty-quick. Pretty quick is used to run Prettier on only changed and staged files. This is much faster than formatting the whole prject each time, and would allow us to apply changed gradually across project.
 
-## Docker
+### Docker
 
-### For Development
+#### For Development
 
 - Create Dockerfile.dev
   - Copy package.json first. We don't want to reinstall dependencies each time we build, even though we didn't change dependencies.
