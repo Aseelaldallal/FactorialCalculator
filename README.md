@@ -57,3 +57,9 @@ In progress...
   - Setup volumes
   - Use depends_on flag to ensure postgres and redis are started before server
   - Add port mapping so developers can hit the routes locally (example: using postman)
+
+# SERVER:
+
+### Initial Configuration
+
+Pretty much the same as server configuration.
