@@ -3,7 +3,7 @@ import * as bodyParser from 'body-parser';
 import express from 'express';
 import * as redis from 'redis';
 import cors from 'cors';
-import { Pool, PoolClient } from 'pg';
+import { Pool } from 'pg';
 
 class App {
     public app: express.Application;
