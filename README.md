@@ -45,12 +45,10 @@ In progress...
   - Precommit hook:
     - Lint -> Run lint on the project, don't allow commit if tslint errors
     - Prettier -> Install pretty-quick. Pretty quick is used to run Prettier on only changed and staged files. This is much faster than formatting the whole prject each time, and would allow us to apply changed gradually across project.
-  - Prepush hook:
-    - Run tests
 
-# Docker
+## Docker
 
-## For Development
+### For Development
 
 - Create Dockerfile.dev
   - Copy package.json first. We don't want to reinstall dependencies each time we build, even though we didn't change dependencies.
@@ -58,3 +56,4 @@ In progress...
 - Add server container
   - Setup volumes
   - Use depends_on flag to ensure postgres and redis are started before server
+  - Add port mapping so developers can hit the routes locally (example: using postman)

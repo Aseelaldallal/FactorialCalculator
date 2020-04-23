@@ -23,6 +23,8 @@ services:
     build:
       dockerfile: Dockerfile.dev
       context: ./server
+    ports:
+      - 8000:4040
     volumes:
       - /app/node_modules
       - ./server:/app
