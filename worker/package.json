@@ -17,9 +17,12 @@
     },
     "author": "",
     "license": "ISC",
-    "dependencies": {},
+    "dependencies": {
+        "redis": "^3.0.2"
+    },
     "devDependencies": {
         "@types/node": "^13.13.2",
+        "@types/redis": "^2.8.18",
         "husky": "^4.2.5",
         "nodemon": "^2.0.3",
         "prettier": "2.0.5",
