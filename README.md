@@ -3,9 +3,10 @@ In progress...
 # Goal
 
 The purpose of this project to get familiar with docker. Basically, I create a development and
-production workflow for an app running in multiple docker containers.
+production workflow for an app running in multiple docker containers. I.e, this project is a learning
+exercise and the notes here are for my own refernece when I build things in the future.
 
-**This project is completely inspired by Stephen Grider's Docker and Kubernetees course offered on udemy. Any diagrams
+**This project is completely inspired by Stephen Grider's Docker and Kubernetees course offered on udemy. All diagrams
 included in this readme are from his course.**
 https://www.udemy.com/course/docker-and-kubernetes-the-complete-guide/
 
@@ -93,13 +94,13 @@ At some point, the browser is going to
 - request index.html, main.js (need to go to react server)
 - make api calls (need to go to express server)
 
-We can achieve this easily by making api calls to
-http://localhost:8000/values/current
-in our react code
+We can achieve this easily by making api calls to localhost:8000/values/current in our react code.
 
 Whats the problem is? The ports could change.
 
-Alternatively, we can get the nginx to look at each request, and decide whether to send it to the
+**Cleaner Solution**
+
+We can get the nginx to look at each request, and decide whether to send it to the
 express server to react server. More specifically, it'll check if the request path has /api, if so,
 it'll route it to the express server; otherwise, it'll direct it to the react server.
 
