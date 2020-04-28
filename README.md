@@ -103,4 +103,4 @@ Alternatively, we can get the nginx to look at each request, and decide whether 
 express server to react server. More specifically, it'll check if the request path has /api, if so,
 it'll route it to the express server; otherwise, it'll direct it to the react server.
 
-![images](nginx-dev)
+![nginxdev](https://i.imgur.com/5PS5nY1.png)
