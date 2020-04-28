@@ -5,7 +5,7 @@ In progress...
 The purpose of this project to get familiar with docker. Basically, I create a development and
 production workflow for an app running in multiple docker containers.
 
-** This project is completely inspired by Stephen Grider's Docker and Kubernetees course offered on udemy. Any diagrams
+**This project is completely inspired by Stephen Grider's Docker and Kubernetees course offered on udemy. Any diagrams
 included in this readme are from his course.**
 https://www.udemy.com/course/docker-and-kubernetes-the-complete-guide/
 
@@ -103,4 +103,4 @@ Alternatively, we can get the nginx to look at each request, and decide whether 
 express server to react server. More specifically, it'll check if the request path has /api, if so,
 it'll route it to the express server; otherwise, it'll direct it to the react server.
 
-Screen Shot 2020-04-27 at 8.50.49 PM.png
+![](nginx-dev)
