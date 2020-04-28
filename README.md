@@ -2,13 +2,27 @@ In progress...
 
 # Goal
 
-- Create development and production workflow for an app running in multiple docker containers
+The purpose of this project to get familiar with docker. Basically, I create a development and
+production workflow for an app running in multiple docker containers.
+
+** This project is completely inspired by Stephen Grider's Docker and Kubernetees course offered on udemy. Any diagrams
+included in this readme are from his course.**
+https://www.udemy.com/course/docker-and-kubernetes-the-complete-guide/
+
+# App Description
+
+The app is purposefully "overcomplicated" - there is absolutely no need to use both redis and postgres. I'm just doing this
+to demonstrate using multiple containers.
 
 # Development Workflow
 
 - Make changes on FEATURE branch
 - Push to github
 - Create pull request to merge with master
+- Travis runs tests
+  - Runs tests on feature branch
+  - Runs tests on feature merged with master
+- If tests pass, merge pull request
 
 # CLIENT:
 
@@ -16,7 +30,7 @@ In progress...
 2. Create Docker Compose
    - Client (web):
      - Setup container port mapping
-     - Setup volumes
+     - Setup volumes --> Easier for development
 3. Create .travis.yml
 4. Connect repo to travis
 
@@ -46,7 +60,7 @@ In progress...
     - Lint -> Run lint on the project, don't allow commit if tslint errors
     - Prettier -> Install pretty-quick. Pretty quick is used to run Prettier on only changed and staged files. This is much faster than formatting the whole prject each time, and would allow us to apply changed gradually across project.
 
-### Docker
+### DOCKER
 
 #### For Development
 
@@ -58,7 +72,7 @@ In progress...
   - Use depends_on flag to ensure postgres and redis are started before server
   - Add port mapping so developers can hit the routes locally (example: using postman)
 
-# SERVER:
+# WORKER:
 
 ### Initial Configuration
 
@@ -69,3 +83,24 @@ Pretty much the same as server configuration.
 #### For Development
 
 Same as server.
+
+# THE CASE FOR NGINX
+
+### DEVELOPMENT
+
+At some point, the browser is going to
+
+- request index.html, main.js (need to go to react server)
+- make api calls (need to go to express server)
+
+We can achieve this easily by making api calls to
+http://localhost:8000/values/current
+in our react code
+
+Whats the problem is? The ports could change.
+
+Alternatively, we can get the nginx to look at each request, and decide whether to send it to the
+express server to react server. More specifically, it'll check if the request path has /api, if so,
+it'll route it to the express server; otherwise, it'll direct it to the react server.
+
+Screen Shot 2020-04-27 at 8.50.49 PM.png
