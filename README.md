@@ -85,9 +85,9 @@ Pretty much the same as server configuration.
 
 Same as server.
 
-# THE CASE FOR NGINX
+# NGINX - DEVELOPMENT
 
-### DEVELOPMENT
+### The Case for NGINX
 
 At some point, the browser is going to
 
