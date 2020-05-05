@@ -21,6 +21,8 @@ Basically this app is a Factorial Calculator.
 
 ![desc](https://imgur.com/BkJk0vu)
 
+App Quirk: You need to refresh everytime you submit an index. Could fix by polling, other, but not the purpose of this exercise.
+
 # Development Workflow
 
 - Make changes on FEATURE branch
@@ -30,6 +32,8 @@ Basically this app is a Factorial Calculator.
   - Runs tests on feature branch
   - Runs tests on feature merged with master
 - If tests pass, merge pull request
+
+To Access: Navigate to localhost:3050
 
 # CLIENT:
 
