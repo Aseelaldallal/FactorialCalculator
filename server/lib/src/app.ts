@@ -67,28 +67,27 @@ class App {
 
     private setupRoutes(): void {
         this.app.get('/', (req, res) => {
-            console.log('will reply hi');
             res.json('Hi');
         });
 
         this.app.get('/values/all', async (req, res) => {
-            console.log('/values/all');
             const values = await this.pgClient.query('SELECT * from values');
-            console.log('returning', values.rows);
-            res.json(values.rows);
+            const nums = values.rows.reduce((accumulator, currVal) => {
+                accumulator.push(currVal.number);
+                return accumulator;
+            }, []);
+            res.json(nums);
         });
 
         this.app.get('/values/current', async (req, res) => {
-            console.log('/value/current');
             this.redisClient.hgetall('values', (err, values) => {
                 res.json(values);
             });
         });
 
         this.app.post('/values', (req, res) => {
-            console.log('posting /values');
             const index = req.body.index;
-            if (parseInt(index, 10) > 40) {
+            if (parseInt(index, 10) > 12) {
                 return res.status(422).send('Index too high');
             }
             this.redisClient.hset('values', index, 'Calculating');

@@ -30,7 +30,7 @@ to demonstrate using multiple containers.
 1. Create Dockerfile.dev in client
 2. Create Docker Compose
    - Client (web):
-     - Setup container port mapping
+     - Setup container port mapping [ REMOVED -- see 'Nginx Development - The case for Nginx']
      - Setup volumes --> Easier for development
 3. Create .travis.yml
 4. Connect repo to travis
