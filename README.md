@@ -120,6 +120,8 @@ confusing the developer. It's simpler to just remove port mapping).
 We'll be using Elastic Beanstalk.
 [Fill in]
 
+![proddiagram](https://i.imgur.com/hK1H9En.png)
+
 - Create pull request to merge with master
 - Travis runs tests
   - Runs tests on feature branch
