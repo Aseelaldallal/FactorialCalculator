@@ -1,6 +1,6 @@
 In progress...
 
-# Goal
+# GOAL
 
 The purpose of this project to get familiar with docker. Basically, I create a development and
 production workflow for an app running in multiple docker containers. I.e, this project is a learning
@@ -10,7 +10,7 @@ exercise and the notes here are for my own refernece when I build things in the 
 included in this readme are from his course.**
 https://www.udemy.com/course/docker-and-kubernetes-the-complete-guide/
 
-# App Description
+# APP DESCRIPTION
 
 **The app is purposefully "overcomplicated" - there is absolutely no need to use both redis and postgres. I'm just doing this
 to demonstrate using multiple containers.**
@@ -23,31 +23,7 @@ Basically this app is a Factorial Calculator.
 
 App Quirk: You need to refresh everytime you submit an index. Could fix by polling, other, but not the purpose of this exercise.
 
-# Development Workflow
-
-- Make changes on FEATURE branch
-- Push to github
-- Create pull request to merge with master
-- Travis runs tests
-  - Runs tests on feature branch
-  - Runs tests on feature merged with master
-- If tests pass, merge pull request
-
-To Access: Navigate to localhost:3050
-
-## CLIENT:
-
-1. Create Dockerfile.dev in client
-2. Create Docker Compose
-   - Client (web):
-     - Setup container port mapping [ REMOVED -- see 'Nginx Development - The case for Nginx']
-     - Setup volumes --> Easier for development
-3. Create .travis.yml
-4. Connect repo to travis
-
-## SERVER:
-
-#### Initial Configuration
+# SERVER - CONFIGURATION
 
 - Create tsconfig file
   - outdir: build -> Where typescript saves our compiled code (.js and .map files)
@@ -71,9 +47,33 @@ To Access: Navigate to localhost:3050
     - Lint -> Run lint on the project, don't allow commit if tslint errors
     - Prettier -> Install pretty-quick. Pretty quick is used to run Prettier on only changed and staged files. This is much faster than formatting the whole prject each time, and would allow us to apply changed gradually across project.
 
+# DEVELOPMENT WORKFLOW
+
+- Make changes on FEATURE branch
+- Push to github
+- Create pull request to merge with master
+- Travis runs tests
+  - Runs tests on feature branch
+  - Runs tests on feature merged with master
+- If tests pass, merge pull request
+
+To Access: Navigate to localhost:3050
+
+## Client:
+
 #### DOCKER
 
-##### For Development
+1. Create Dockerfile.dev in client
+2. Create Docker Compose
+   - Client (web):
+     - Setup container port mapping [ REMOVED -- see 'Nginx Development - The case for Nginx']
+     - Setup volumes --> Easier for development
+3. Create .travis.yml
+4. Connect repo to travis
+
+## Server:
+
+#### DOCKER
 
 - Create Dockerfile.dev
   - Copy package.json first. We don't want to reinstall dependencies each time we build, even though we didn't change dependencies.
@@ -85,17 +85,11 @@ To Access: Navigate to localhost:3050
 
 ## WORKER:
 
-#### Initial Configuration
-
-Pretty much the same as server configuration.
-
 #### Docker
 
-##### For Development
+Same as Server.
 
-Same as server.
-
-## NGINX - DEVELOPMENT
+## NGINX
 
 #### The Case for NGINX
 
