@@ -102,7 +102,7 @@ We can achieve this easily by making api calls to localhost:8000/values/current 
 
 Whats the problem is? The ports could change.
 
-**Cleaner Solution**
+Cleaner Solution:
 
 We can get the nginx to look at each request, and decide whether to send it to the
 express server to react server. More specifically, it'll check if the request path has /api, if so,
@@ -114,3 +114,33 @@ Note: In docker-compose.yml, for the nginx server, we mapped port 3050:80. I.e, 
 navigate to localhost:3050 not localhost:3000. To avoid confusion, I removed port mapping from the client
 service (If developer navigates to locahost:3000, they'll see the react app, but all api requests will fail,
 confusing the developer. It's simpler to just remove port mapping).
+
+# PRODUCTION WORKFLOW
+
+We'll be using Elastic Beanstalk.
+[Fill in]
+
+- Create pull request to merge with master
+- Travis runs tests
+  - Runs tests on feature branch
+  - Runs tests on feature merged with master
+- If tests pass:
+  - Travis Builds Production Images
+  - Travis pushes images to Docker Hub
+  - Travis Pushes Project to Elastic Beanstalk
+  - Elastic Beanstalk pulls images from Docker Hub and Deploys
+
+## Client
+
+#### Nginx
+
+**Why Nginx**
+
+We need a server whose sole purpose is to respond to browser requests with the index.html file and js file that contains all the code.
+
+#### Docker
+
+We're using a multi-step build process.
+We basically copy over whatever is in app/build into new nginx container.
+
+By adding EXPOSE 3000, Elastic Beanstalk knows to use 3000 as a port for incoming traffic.
