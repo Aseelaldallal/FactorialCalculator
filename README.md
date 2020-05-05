@@ -12,8 +12,16 @@ https://www.udemy.com/course/docker-and-kubernetes-the-complete-guide/
 
 # App Description
 
-The app is purposefully "overcomplicated" - there is absolutely no need to use both redis and postgres. I'm just doing this
-to demonstrate using multiple containers.
+**The app is purposefully "overcomplicated" - there is absolutely no need to use both redis and postgres. I'm just doing this
+to demonstrate using multiple containers.**
+
+Basically this app is a Factorial Calculator.
+
+![app](https://i.imgur.com/3igbdKR.png)
+
+![desc](https://i.imgur.com/BkJk0vu.png)
+
+App Quirk: You need to refresh everytime you submit an index. Could fix by polling, other, but not the purpose of this exercise.
 
 # Development Workflow
 
@@ -25,19 +33,21 @@ to demonstrate using multiple containers.
   - Runs tests on feature merged with master
 - If tests pass, merge pull request
 
-# CLIENT:
+To Access: Navigate to localhost:3050
+
+## CLIENT:
 
 1. Create Dockerfile.dev in client
 2. Create Docker Compose
    - Client (web):
-     - Setup container port mapping
+     - Setup container port mapping [ REMOVED -- see 'Nginx Development - The case for Nginx']
      - Setup volumes --> Easier for development
 3. Create .travis.yml
 4. Connect repo to travis
 
-# SERVER:
+## SERVER:
 
-### Initial Configuration
+#### Initial Configuration
 
 - Create tsconfig file
   - outdir: build -> Where typescript saves our compiled code (.js and .map files)
@@ -61,9 +71,9 @@ to demonstrate using multiple containers.
     - Lint -> Run lint on the project, don't allow commit if tslint errors
     - Prettier -> Install pretty-quick. Pretty quick is used to run Prettier on only changed and staged files. This is much faster than formatting the whole prject each time, and would allow us to apply changed gradually across project.
 
-### DOCKER
+#### DOCKER
 
-#### For Development
+##### For Development
 
 - Create Dockerfile.dev
   - Copy package.json first. We don't want to reinstall dependencies each time we build, even though we didn't change dependencies.
@@ -73,21 +83,21 @@ to demonstrate using multiple containers.
   - Use depends_on flag to ensure postgres and redis are started before server
   - Add port mapping so developers can hit the routes locally (example: using postman)
 
-# WORKER:
+## WORKER:
 
-### Initial Configuration
+#### Initial Configuration
 
 Pretty much the same as server configuration.
 
-### Docker
+#### Docker
 
-#### For Development
+##### For Development
 
 Same as server.
 
-# THE CASE FOR NGINX
+## NGINX - DEVELOPMENT
 
-### DEVELOPMENT
+#### The Case for NGINX
 
 At some point, the browser is going to
 
@@ -105,3 +115,8 @@ express server to react server. More specifically, it'll check if the request pa
 it'll route it to the express server; otherwise, it'll direct it to the react server.
 
 ![nginxdev](https://i.imgur.com/5PS5nY1.png)
+
+Note: In docker-compose.yml, for the nginx server, we mapped port 3050:80. I.e, the developer has to
+navigate to localhost:3050 not localhost:3000. To avoid confusion, I removed port mapping from the client
+service (If developer navigates to locahost:3000, they'll see the react app, but all api requests will fail,
+confusing the developer. It's simpler to just remove port mapping).

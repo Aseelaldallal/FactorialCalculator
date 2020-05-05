@@ -72,7 +72,11 @@ class App {
 
         this.app.get('/values/all', async (req, res) => {
             const values = await this.pgClient.query('SELECT * from values');
-            res.json(values.rows);
+            const nums = values.rows.reduce((accumulator, currVal) => {
+                accumulator.push(currVal.number);
+                return accumulator;
+            }, []);
+            res.json(nums);
         });
 
         this.app.get('/values/current', async (req, res) => {
@@ -83,7 +87,7 @@ class App {
 
         this.app.post('/values', (req, res) => {
             const index = req.body.index;
-            if (parseInt(index, 10) > 40) {
+            if (parseInt(index, 10) > 12) {
                 return res.status(422).send('Index too high');
             }
             this.redisClient.hset('values', index, 'Calculating');
