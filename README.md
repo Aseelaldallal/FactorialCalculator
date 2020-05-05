@@ -12,8 +12,14 @@ https://www.udemy.com/course/docker-and-kubernetes-the-complete-guide/
 
 # App Description
 
-The app is purposefully "overcomplicated" - there is absolutely no need to use both redis and postgres. I'm just doing this
-to demonstrate using multiple containers.
+**The app is purposefully "overcomplicated" - there is absolutely no need to use both redis and postgres. I'm just doing this
+to demonstrate using multiple containers.**
+
+Basically this app is a Factorial Calculator.
+
+![app](https://imgur.com/3igbdKR)
+
+![desc](https://imgur.com/BkJk0vu)
 
 # Development Workflow
 
