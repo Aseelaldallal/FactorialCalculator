@@ -14,3 +14,8 @@ script:
   - docker run -e CI=true aseelaldallal/factorial-calculator-web-test npm run test
 # Gotcha: Travis assumes that tests run and exit. But npm run test does not exit,
 # it waits for input. And so we add
+
+after_success:
+  - docker build -t aseel/factorial-client ./client
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  - docker push aseel/factorial-client
