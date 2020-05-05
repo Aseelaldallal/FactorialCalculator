@@ -35,7 +35,7 @@ App Quirk: You need to refresh everytime you submit an index. Could fix by polli
 
 To Access: Navigate to localhost:3050
 
-# CLIENT:
+## CLIENT:
 
 1. Create Dockerfile.dev in client
 2. Create Docker Compose
@@ -45,9 +45,9 @@ To Access: Navigate to localhost:3050
 3. Create .travis.yml
 4. Connect repo to travis
 
-# SERVER:
+## SERVER:
 
-### Initial Configuration
+#### Initial Configuration
 
 - Create tsconfig file
   - outdir: build -> Where typescript saves our compiled code (.js and .map files)
@@ -71,9 +71,9 @@ To Access: Navigate to localhost:3050
     - Lint -> Run lint on the project, don't allow commit if tslint errors
     - Prettier -> Install pretty-quick. Pretty quick is used to run Prettier on only changed and staged files. This is much faster than formatting the whole prject each time, and would allow us to apply changed gradually across project.
 
-### DOCKER
+#### DOCKER
 
-#### For Development
+##### For Development
 
 - Create Dockerfile.dev
   - Copy package.json first. We don't want to reinstall dependencies each time we build, even though we didn't change dependencies.
@@ -83,21 +83,21 @@ To Access: Navigate to localhost:3050
   - Use depends_on flag to ensure postgres and redis are started before server
   - Add port mapping so developers can hit the routes locally (example: using postman)
 
-# WORKER:
+## WORKER:
 
-### Initial Configuration
+#### Initial Configuration
 
 Pretty much the same as server configuration.
 
-### Docker
+#### Docker
 
-#### For Development
+##### For Development
 
 Same as server.
 
-# NGINX - DEVELOPMENT
+## NGINX - DEVELOPMENT
 
-### The Case for NGINX
+#### The Case for NGINX
 
 At some point, the browser is going to
 
