@@ -17,9 +17,9 @@ to demonstrate using multiple containers.**
 
 Basically this app is a Factorial Calculator.
 
-![app](https://imgur.com/3igbdKR)
+![app](https://i.imgur.com/3igbdKR.png)
 
-![desc](https://imgur.com/BkJk0vu)
+![desc](https://i.imgur.com/BkJk0vu.png)
 
 App Quirk: You need to refresh everytime you submit an index. Could fix by polling, other, but not the purpose of this exercise.
 
