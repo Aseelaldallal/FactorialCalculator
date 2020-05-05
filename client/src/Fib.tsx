@@ -22,11 +22,13 @@ class Fib extends React.Component {
   }
 
   async fetchValues() {
+    console.log("Fetching Values");
     const values = await axios.get("/api/values/current");
     this.setState({ values: values.data });
   }
 
   async fetchIndexes() {
+    console.log("Fetching Indexes");
     const seenIndexes = await axios.get("/api/values/all");
     console.log("Seen Indexes data", seenIndexes.data);
     this.setState({
@@ -39,6 +41,7 @@ class Fib extends React.Component {
     await axios.post("/api/values", {
       index: this.state.index,
     });
+    console.log("Posted");
     this.setState({ index: "" });
   };
 

@@ -105,3 +105,8 @@ express server to react server. More specifically, it'll check if the request pa
 it'll route it to the express server; otherwise, it'll direct it to the react server.
 
 ![nginxdev](https://i.imgur.com/5PS5nY1.png)
+
+Note: In docker-compose.yml, for the nginx server, we mapped port 3050:80. I.e, the developer has to
+navigate to localhost:3050 not localhost:3000. To avoid confusion, I removed port mapping from the client
+service (If developer navigates to locahost:3000, they'll see the react app, but all api requests will fail,
+confusing the developer. It's simpler to just remove port mapping).
