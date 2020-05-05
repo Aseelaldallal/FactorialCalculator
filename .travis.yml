@@ -17,5 +17,11 @@ script:
 
 after_success:
   - docker build -t aseel/factorial-client ./client
+  - docker build -t aseel/factorial-nginx ./nginx
+  - docker build -t aseel/factorial-server ./server
+  - docker build -t aseel/factorial-worker ./worker
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   - docker push aseel/factorial-client
+  - docker push aseel/factorial-nginx
+  - docker push aseel/factorial-server
+  - docker push aseel/factorial-worker
