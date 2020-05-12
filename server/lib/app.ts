@@ -87,7 +87,8 @@ class App {
 
         this.app.post('/values', (req, res) => {
             const index = req.body.index;
-            if (parseInt(index, 10) > 12) {
+            const num = parseInt(index, 10);
+            if (!Number.isInteger(num) || num > 12) {
                 return res.status(422).send('Index too high');
             }
             this.redisClient.hset('values', index, 'Calculating');
