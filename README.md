@@ -146,3 +146,16 @@ We're using a multi-step build process.
 We basically copy over whatever is in app/build into new nginx container.
 
 By adding EXPOSE 3000, Elastic Beanstalk knows to use 3000 as a port for incoming traffic.
+
+## Deploying to AWS
+
+Our Elastic beanstalk (EB) instance will contain our four containers. We will use AWS Elastic cache (EC) for redis, and AWS Relation Database Services (RDS) for postgres. By default, Elastic Beanstalk doesn't talk to RDS or EC, but we need the containers in EB to communicate with Redis and Postgres. We get them to communicate by creating a new security group that says 'Let any traffic access this instance if it belongs to this security group'. We'll add EB, RDS, EC to this security group.
+
+1. Create Dockerrun.aws.json -> Tell Elastic Beanstalk where to pull our images from (Docker Hub), what resources to allocate to each one, how to set up port mappings and some associated information.
+2. Create EB Environment (Sign in to AWS, choose Elastic Beanstalk Service, Create Application)
+3. Create RDS instance
+4. Create EC instance
+5. Create security group with rule 'Let any traffic access this instance if it belongs to this security group'.
+6. Apply new security group to EB, RDS, EC
+7. Add AWS_ACCESS_KEY, AWS_SECRET_KEY to travis
+8. Add deploy script to travis.yml
