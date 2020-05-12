@@ -25,3 +25,16 @@ after_success:
   - docker push aseel/factorial-nginx
   - docker push aseel/factorial-server
   - docker push aseel/factorial-worker
+
+deploy:
+  provider: elasticbeanstalk
+  region: ca-central-1
+  app: Factorial Calculator
+  env: FactorialCalculator-env-1
+  bucket_name: elasticbeanstalk-ca-central-1-307308598241
+  # This is where Travis zips up our project and stashes it inside of some S3 bucket
+  bucket_path: docker-factorial-app
+  on:
+    branch: master # Only try to deploy this thing when the branch we are building on Travis is master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
