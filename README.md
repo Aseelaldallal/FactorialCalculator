@@ -1,4 +1,4 @@
-In progress...
+Note: I took this app down to avoid paying for AWS.
 
 # GOAL
 
@@ -116,9 +116,6 @@ service (If developer navigates to locahost:3000, they'll see the react app, but
 confusing the developer. It's simpler to just remove port mapping).
 
 # PRODUCTION WORKFLOW
-
-We'll be using Elastic Beanstalk.
-[Fill in]
 
 ![proddiagram](https://i.imgur.com/hK1H9En.png)
 
