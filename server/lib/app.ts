@@ -79,8 +79,7 @@ class App {
                 },
                 []
             );
-            console.log('NUMS: ', nums);
-            res.json([4, 4, 5]);
+            res.json(nums);
         });
 
         this.app.get('/values/current', async (req, res) => {
