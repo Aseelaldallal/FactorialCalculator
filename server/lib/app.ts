@@ -72,11 +72,15 @@ class App {
 
         this.app.get('/values/all', async (req, res) => {
             const values = await this.pgClient.query('SELECT * from values');
-            const nums = values.rows.reduce((accumulator, currVal) => {
-                accumulator.push(currVal.number);
-                return accumulator;
-            }, []);
-            res.json(nums);
+            const nums: number[] = values.rows.reduce(
+                (accumulator, currVal) => {
+                    accumulator.push(currVal.number);
+                    return accumulator;
+                },
+                []
+            );
+            console.log('NUMS: ', nums);
+            res.json([4, 4, 5]);
         });
 
         this.app.get('/values/current', async (req, res) => {
