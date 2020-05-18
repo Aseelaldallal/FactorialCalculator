@@ -2,12 +2,12 @@
     "name": "server",
     "version": "1.0.0",
     "description": "",
-    "main": "./lib/src/server.ts",
+    "main": "./lib/server.ts",
     "scripts": {
         "build": "rimraf ./build && tsc",
         "dev": "nodemon",
         "start": "npm run build && node build/server.js",
-        "pretty": "prettier --write lib/src/*",
+        "pretty": "prettier --write lib/*",
         "lint": "tslint --project tsconfig.json"
     },
     "husky": {
